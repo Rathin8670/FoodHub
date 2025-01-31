@@ -6,8 +6,13 @@ import {Body} from './components/Body'
 import {Footer} from './components/Footer'
 import { RestaurentMenu } from './pages/RestaurantMenu';
 import { ContactUs } from './pages/ContactUs';
-import { Profile } from './pages/Profile';
+//import { Profile } from './pages/Profile';
 import { Cart } from './pages/Cart';
+import  { lazy,Suspense } from 'react';
+
+// lazy loading 
+// make a separate bundle for profile 
+const Profile=lazy(()=> import('./pages/Profile'))
 
 function App() {
   return (
@@ -56,7 +61,8 @@ export const appRouter=createBrowserRouter([
       },
       {
         path:'/profile',
-        element:<Profile/>
+        element:
+        <Suspense fallback={<h1>Loading the page..</h1>}><Profile/></Suspense>
       }
     ]
   }

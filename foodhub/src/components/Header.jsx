@@ -45,13 +45,13 @@ export const Header = () => {
         {/* Account/Cart icons */}
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-2">
-            <Link to={'/cart'}><img src="./assets/cart.png" alt="Cart"className="w-7 h-7 cursor-pointer"/>
+            <Link to={'/cart'}><img src="../assets/cart.png" alt="Cart"className="w-7 h-7 cursor-pointer"/>
             </Link>
             <p className="cursor-pointer"><Link to={'/cart'}>Cart</Link></p>
           </div>
 
           <div className="flex items-center space-x-2">
-          <Link to={'/profile'}><img src="./assets/profile.png" alt="Profile"    className="w-7 h-7 cursor-pointer"/>
+          <Link to={'/profile'}><img src="../assets/profile.png" alt="Profile"    className="w-7 h-7 cursor-pointer"/>
           </Link>
           <p className="cursor-pointer"><Link to={'/profile'}>Profile</Link></p>
           </div>

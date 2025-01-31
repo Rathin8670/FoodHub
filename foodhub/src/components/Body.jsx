@@ -14,16 +14,17 @@ export const Body = () => {
         const response = await fetch(RESTAURENT_DATA_URL);
         const json = await response.json();
     
-        //console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
 
         // when extract do optional chaining
         setRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         
     }
+
     return restaurants?.length==0 ? <Shimmer/>:(
         <div className='flex flex-wrap justify-center gap-4 p-4'>
             {
-            restaurants.map((restaurant) => {
+            restaurants?.map((restaurant) => {
                 return <Link 
                 key={restaurant.info.id} 
                 to={"/restaurent/"+restaurant.info.id}>
