@@ -1,10 +1,11 @@
-import { useState } from "react"
+
+import { useState } from "react";
 import { LOGO_URL } from "../utils/contants";
 import { Link } from "react-router-dom";
 
+
 export const Header = () => {
   const [searchText,setSearchText]=useState("")
-
   return (
       <>
       <div className="flex items-center justify-between p-2 white-bg shadow-md">
@@ -28,7 +29,6 @@ export const Header = () => {
             className="p-2 border cursor-pointer  outline outline-offset-2 text-white rounded-full bg-orange-400 hover:bg-red-500"
             onClick={()=>{
               //need to filter the data
-              
             }}
           >
             Search
@@ -51,9 +51,8 @@ export const Header = () => {
           </div>
 
           <div className="flex items-center space-x-2">
-          <Link to={'/profile'}><img src="../assets/profile.png" alt="Profile"    className="w-7 h-7 cursor-pointer"/>
-          </Link>
-          <p className="cursor-pointer"><Link to={'/profile'}>Profile</Link></p>
+            <Link to={'/profile'}><img src="../assets/profile.png" alt="Profile"    className="w-7 h-7 cursor-pointer"/></Link>
+            <p className="cursor-pointer"><Link to={'/profile'}>Profile</Link></p>
           </div>
         </div>
       </div>

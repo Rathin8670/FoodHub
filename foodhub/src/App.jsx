@@ -15,10 +15,11 @@ import  { lazy,Suspense } from 'react';
 const Profile=lazy(()=> import('./pages/Profile'))
 
 function App() {
+
   return (
     <>
       <div className='display flex flex-col'>
-      <Header/>
+      <Header />
       <Outlet/>
       <Footer/>
       </div>
@@ -41,7 +42,7 @@ export const appRouter=createBrowserRouter([
     children:[
       {
         path:'/',
-        element:<Body/>
+        element:<Body />
       },
       {
         path:'/about',

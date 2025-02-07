@@ -1,37 +1,16 @@
 import { RestaurantCard } from "./RestaurantCard"
-import { useEffect, useState } from "react";
 import { Shimmer } from "./Shimmer";
-import { RESTAURENT_DATA_URL } from "../utils/contants";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import { useRestaurentData } from "../utils/useRestaurentData";
+import { CardLists } from "./CardLists";
 
-export const Body = () => {
-    const [restaurants, setRestaurants] = useState([]);
-    useEffect(() => {
-    fetchData();
-    },[]);
+export const Body = (searchText) => {
 
-    const fetchData = async () => { 
-        const response = await fetch(RESTAURENT_DATA_URL);
-        const json = await response.json();
-    
-        console.log(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    const [restaurants,filterRestaurents] = useRestaurentData(searchText);
 
-        // when extract do optional chaining
-        setRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        
-    }
-
-    return restaurants?.length==0 ? <Shimmer/>:(
-        <div className='flex flex-wrap justify-center gap-4 p-4'>
-            {
-            restaurants?.map((restaurant) => {
-                return <Link 
-                key={restaurant.info.id} 
-                to={"/restaurent/"+restaurant.info.id}>
-                <RestaurantCard restaurant={restaurant}  />
-                </Link>;
-            })
-            }
+    return (
+        <div>
+            <CardLists restaurants={restaurants}/> 
         </div>
     )
 }

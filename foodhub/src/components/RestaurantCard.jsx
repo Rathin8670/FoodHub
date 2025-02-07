@@ -5,6 +5,7 @@ import { IMG_CDN_URL } from '../utils/contants';
 export const RestaurantCard = ({ restaurant }) => {
     const {cuisines}=restaurant.info;
     //console.log(cuisines);
+    
     return (
       <div className="w-full md:w-80 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer">
         <div className="h-48 bg-gray-200 rounded-t-2xl overflow-hidden">
